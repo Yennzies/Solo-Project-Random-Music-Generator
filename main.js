@@ -59,6 +59,11 @@ Thelist.makeSong("Viva La Vida" , "Coldplay" , "Pop" , "./media/Music/Pop/Coldpl
  Thelist.makeSong("Hayloft II" , "Mother Mother" , "Peak" , "./media/Music/Peak/Mother Mother - Hayloft II (Official Lyric Video).mp3")
  Thelist.makeSong("Love Space" , "Tatsuro Yamashita" , "Peak" , "./media/Music/Peak/Tatsuro Yamashita - Love Space (sub español).mp3")
  Thelist.makeSong("Unknown Mother Goose" , "Wowaka" , "Peak" , "./media/Music/Peak/wowaka 『アンノウン・マザーグース』feat. 初音ミク  wowaka - Unknown Mother-Goose (Official Video) ft. Hatsune Miku.mp3")
+Thelist.makeSong("A man without Love" , "Engelbert Humperdinick" , "Classical" ,"./media/Music/Classical/A Man Without Love LYRICS Video Engelbert Humperdinck 1968 🌙 Moon Knight Episode 1.mp3" )
+Thelist.makeSong("September" , "Earth, Wind & Fire" , "Classical" ,"./media/Music/Classical/Earth, Wind & Fire - September (Lyrics).mp3" )
+Thelist.makeSong("Dream a little dream of me" , "Ella Fitzgerald" , "Classical" ,"./media/Music/Classical/Ella Fitzgerald, Louis Armstrong - Dream A Little Dream Of Me (Audio).mp3" )
+Thelist.makeSong("Can't help falling in love" , "Elves Presley" , "Classical" ,"./media/Music/Classical/Elvis Presley - Cant Help Falling in Love (Lyrics).mp3" )
+Thelist.makeSong("Fly me To the moon" , "Frank Sinatra" , "Classical" , "./media/Music/Classical/Fly me to the moon - Frank Sinatra (Lyrics).mp3")
  
  
  function play_pause() {
