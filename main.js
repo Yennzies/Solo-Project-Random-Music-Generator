@@ -1,3 +1,5 @@
+
+// 1 Making a class //
 function makeList () {
   return {
     list : [],
@@ -7,7 +9,7 @@ function makeList () {
   
 }
 
-
+// 2 ID generator //
 function generateID (){
   counter = 0
   return function() {
@@ -17,6 +19,7 @@ function generateID (){
 }
 var id = generateID()
 
+// 3 factory function //
 function makeSong (name , artist , genre , source , duration){
   var song = {
     name,
@@ -65,7 +68,7 @@ Thelist.makeSong("Dream a little dream of me" , "Ella Fitzgerald" , "Classical" 
 Thelist.makeSong("Can't help falling in love" , "Elves Presley" , "Classical" ,"./media/Music/Classical/Elvis Presley - Cant Help Falling in Love (Lyrics).mp3" )
 Thelist.makeSong("Fly me To the moon" , "Frank Sinatra" , "Classical" , "./media/Music/Classical/Fly me to the moon - Frank Sinatra (Lyrics).mp3")
  
- 
+ //4 creating a function for the play/pause button //
  function play_pause() {
   var audiofile = document.getElementById("audio_file")
    var icon = document.getElementById("play_pause_btn")
@@ -80,11 +83,12 @@ Thelist.makeSong("Fly me To the moon" , "Frank Sinatra" , "Classical" , "./media
  }
 }
  
+// 5 click event for the start/pause button //
  $("#play_pause_btn").click (function(){
       play_pause()
   })
 
-
+ // 6 Choosing the next song randomly //
  $("#next").click(function() {
   var randomizer = Math.floor(Math.random() * 26)
   console.log(randomizer)
@@ -99,6 +103,8 @@ Thelist.makeSong("Fly me To the moon" , "Frank Sinatra" , "Classical" , "./media
  })
 })
 
+
+// 7 Choosing Another song randomly //
 $("#back").click(function(){
   var randomizer = Math.floor(Math.random() * 26)
   console.log(randomizer)
@@ -113,12 +119,14 @@ $("#back").click(function(){
 })
 })
 
+
+// 8 Choosing for a specific Song //
 $("#searchTool").on("click", function () {
   var titleaudio = $("#title_audio")
   var audiofile = document.getElementById("audio_file")
   var value = $("#search").val();
-  var filtered = Thelist.list.filter(function (item) {
-    return item.name.toLowerCase().includes(value.toLowerCase()) || item.artist.toLowerCase().includes(value.toLowerCase())
+  var filtered = Thelist.list.filter(function (song) {
+    return song.name.toLowerCase().includes(value.toLowerCase()) || song.artist.toLowerCase().includes(value.toLowerCase())
   });
  filtered.forEach(function(e,i){
   titleaudio.text(`${e.name} - ${e.artist}`)
@@ -128,7 +136,25 @@ $("#searchTool").on("click", function () {
 });
 
 
+// 9 Filtering by genre //
+$("#filter").on("click" , function(){
+  var titleaudio = $("#title_audio")
+  var audiofile = document.getElementById("audio_file")
+  var value = $("#category").val();
+  var counter = 0
+  var filtered = Thelist.list.filter(function(song){
+    return song.genre.toLowerCase().includes(value.toLowerCase())
+  });
+  $("#nextSong").on("click", function(){
+    counter++
+    filtered[counter]
+    titleaudio.text(`${filtered[counter].name} - ${filtered[counter].artist}`)
+    audiofile.setAttribute("src", `${filtered[counter].source}`)
+    play_pause()
+  })
+})
 
+// 10 functions for the volume & the speed //
  class Volume {
   constructor() {
       this.audio_file = document.getElementById("audio_file");
