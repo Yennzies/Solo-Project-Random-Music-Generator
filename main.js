@@ -152,10 +152,14 @@ $("#nextSong").on("click", function(){
   var titleaudio = $("#title_audio")
   var audiofile = document.getElementById("audio_file")
   counter++
+  if (counter >= Thelist.Filtered.length){
+    counter = 0
+  }else {
   Thelist.Filtered[counter]
   titleaudio.text(`${Thelist.Filtered[counter].name} - ${Thelist.Filtered[counter].artist}`)
   audiofile.setAttribute("src", `${Thelist.Filtered[counter].source}`)
   audiofile.play()
+  }
 })
 // 10 functions for the volume & the speed //
  class Volume {
