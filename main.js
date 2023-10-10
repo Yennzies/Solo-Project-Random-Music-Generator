@@ -4,7 +4,8 @@ function makeList () {
   return {
     list : [],
     makeSong : makeSong,
-    Played : true
+    Played : true,
+    Filtered : []
   }
   
 }
@@ -138,22 +139,24 @@ $("#searchTool").on("click", function () {
 
 // 9 Filtering by genre //
 $("#filter").on("click" , function(){
-  var titleaudio = $("#title_audio")
-  var audiofile = document.getElementById("audio_file")
   var value = $("#category").val();
-  var counter = 0
   var filtered = Thelist.list.filter(function(song){
     return song.genre.toLowerCase().includes(value.toLowerCase())
   });
-  $("#nextSong").on("click", function(){
-    counter++
-    filtered[counter]
-    titleaudio.text(`${filtered[counter].name} - ${filtered[counter].artist}`)
-    audiofile.setAttribute("src", `${filtered[counter].source}`)
-    play_pause()
-  })
+  Thelist.Filtered= filtered
+  console.log(filtered);
 })
 
+var counter = 0
+$("#nextSong").on("click", function(){
+  var titleaudio = $("#title_audio")
+  var audiofile = document.getElementById("audio_file")
+  counter++
+  Thelist.Filtered[counter]
+  titleaudio.text(`${Thelist.Filtered[counter].name} - ${Thelist.Filtered[counter].artist}`)
+  audiofile.setAttribute("src", `${Thelist.Filtered[counter].source}`)
+  audiofile.play()
+})
 // 10 functions for the volume & the speed //
  class Volume {
   constructor() {
